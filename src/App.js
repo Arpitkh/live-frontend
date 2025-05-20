@@ -1,20 +1,13 @@
-import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import AuthRoutes from './routes/AuthRoutes'
 
 function App() {
-  const [health, setHealth] = useState(null);
-
-  useEffect(() => {
-    fetch('http://localhost:6000/api/health')
-      .then(res => res.json())
-      .then(data => setHealth(data.status))
-      .catch(() => setHealth('Backend not reachable'));
-  }, []);
-
   return (
-    <div>
-      <h1>Hello Hello</h1>
-      <p>Backend status: {health}</p>
-    </div>
+    <Router>
+      <Routes>
+        {AuthRoutes}
+      </Routes>
+    </Router>
   );
 }
 
