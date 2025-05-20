@@ -19,8 +19,6 @@ export default function Signup() {
 
       if(response.data.success)
         setMessage({ type: 'success', text: response.data.message || 'Signup successful!' });
-      else
-        setMessage({ type: 'error', text: response.data.message || 'Signup failed. Please try again.' });
     } catch (error) {
       setMessage({ type: 'error', text: error.response?.data?.message || error.response?.data?.error || 'Signup failed. Please try again.' });
     }
